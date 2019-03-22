@@ -14,7 +14,7 @@ export class ParquesService {
 
   getParques(): Observable<any[]>{
     return this.http.get<any[]>(this.parquesUrl).pipe(
-      tap(data => console.log('All: ')),
+      tap(data => console.log('All: ' )), //+ JSON.stringify(data)
       catchError(this.handleError)
     );
   }

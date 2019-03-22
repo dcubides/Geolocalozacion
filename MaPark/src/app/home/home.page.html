@@ -3,19 +3,13 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>
-            Home
-        </ion-title>
+         
+      <ion-searchbar #search placeholder="Nombre parque"  (keyup)="onKey(search.value)"></ion-searchbar>
+        
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <div id="map"></div>
-   <!-- <table>
-        <tr *ngFor="let parque of parques">
-            <td>
-                COrdenada x =   {{parque.coord_x}}
-            </td>
-        </tr>
-    </table>-->
+   <ion-button id="mas"> Nuevo Parque</ion-button>
 </ion-content>
