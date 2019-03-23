@@ -2,7 +2,7 @@ import { ParquesService } from './../parques.service';
 import { Component, OnInit, AfterViewInit  } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LoadingController } from '@ionic/angular';
-import { stringify } from '@angular/compiler/src/util';
+import { Router } from '@angular/router';
 
 
 declare var google;
@@ -48,30 +48,34 @@ filtrarParque() {
   constructor(
     private geolocation: Geolocation,
     private loadCtrl: LoadingController,
-    private parqueervice: ParquesService
+    private parqueervice: ParquesService,
+    private router: Router
   ) {}
 
   ngOnInit() {
+    //this.loadMap()
+
     this.parqueervice.getParques().subscribe(
-      parques => {
-        this.parques = parques;
-        this.filteredParks = this.parques;
-      },
+      parques => this.parques = parques,
       error => this.errorMessage = <any>error,
-      () => this.loadMap()
+      () => this.alTerminardeCArgar()
     );
 
-   // this.loadMap();
+    
+
+    //this.loadMap();
   }
 
-
+  alTerminardeCArgar(): void{
+    this.loadMap();
+  }
 
   async loadMap() {
 
     const loading = await this.loadCtrl.create();
     loading.present();
 
-    const myLatLng = await this.getLocation();
+    const myLatLng = await this.dondEestoy();
    // console.log(myLatLng);
 
     const mapEle: HTMLElement = document.getElementById('map');
@@ -81,8 +85,8 @@ filtrarParque() {
         zoom: 12
     });
 
-    for (let i = 0; i < this.filteredParks.length; i++) {
-      this.AddMarker(parseFloat(this.parques[i].coord_y), parseFloat(this.parques[i].coord_x), this.parques[i].nombre_Parque, 'parking');
+    for (let i = 0; i < this.parques.length; i++) {
+      this.AddMarker(parseFloat(this.parques[i].coord_y), parseFloat(this.parques[i].coord_x), this.parques[i].nombre_Parque, 'parking' , this.parques[i].parqueId);
     }
 
 
@@ -90,13 +94,13 @@ filtrarParque() {
   //  marker.setMap(this.mapRef);
 
     google.maps.event.addListenerOnce(this.mapRef, 'idle', () => {
-    this.AddMarker(myLatLng.lat, myLatLng.lng, 'Mi Ubicación', 'info');
-     loading.dismiss();
+    this.AddMarker(myLatLng.lat, myLatLng.lng, 'Mi Ubicación', 'info' , 0);
+      loading.dismiss();
     });
 
   }
 
-  private AddMarker(lat: number, lng: number, nombre: string, type: string) {
+  private AddMarker(lat: number, lng: number, nombre: string, type: string, id: number ) {
     const iconBase = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
 
       const icons = {
@@ -121,13 +125,33 @@ filtrarParque() {
       title: nombre,
       icon :  icons[type].icon
     });
+    
+    const infowindow = new google.maps.InfoWindow({
+      content: `
+          <div>
+            <h3>
+              ${nombre}
+            </h3>
+            <a href="/home/:${id}">Go to Detail</a>
+          </div>
+        `
+    });
 
-    marker.setMap(this.mapRef);
+    marker.addListener('click', function() {
+      infowindow.open(this.mapRef, marker);
+      // console.log(id);
+    });
+
+    // marker.setMap(this.mapRef);
+  }
+
+  private openDetalle(id:number){
+    console.log(id);
   }
 
 
 
-  private async getLocation() {
+  private async dondEestoy() {
     const rta = await this.geolocation.getCurrentPosition();
 
     return {

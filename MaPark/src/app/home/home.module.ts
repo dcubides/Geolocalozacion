@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { DetailParkComponent } from './detail-park/detail-park.component';
 
 @NgModule({
   imports: [
@@ -15,9 +16,13 @@ import { HomePage } from './home.page';
       {
         path: '',
         component: HomePage
+      },
+      {
+        path: ':id',
+        component: DetailParkComponent
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, DetailParkComponent]
 })
 export class HomePageModule {}

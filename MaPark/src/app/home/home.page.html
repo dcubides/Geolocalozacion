@@ -3,8 +3,10 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
+
+        {{_filtroParque}}
          
-      <ion-searchbar #search placeholder="Nombre parque"  (keyup)="onKey(search.value)"></ion-searchbar>
+      <ion-searchbar #search placeholder="Nombre parque" [(ngModel)]="filtroParque"></ion-searchbar>
         
     </ion-toolbar>
 </ion-header>
@@ -12,4 +14,5 @@
 <ion-content>
     <div id="map"></div>
    <ion-button id="mas"> Nuevo Parque</ion-button>
+   
 </ion-content>

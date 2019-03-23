@@ -16,7 +16,16 @@ export class ParquesService {
     return this.http.get<any[]>(this.parquesUrl).pipe(
       tap(data => console.log('All: ' )), //+ JSON.stringify(data)
       catchError(this.handleError)
-    );
+      );
+    }
+    
+    
+    getParqueById(id: number): Observable<any[]> {
+      return this.http.get<any[]>(this.parquesUrl+'/'+id).pipe(
+        tap(data => console.log('All: ' + JSON.stringify(data) )), //+ JSON.stringify(data)
+        catchError(this.handleError)
+      )
+
   }
 
   private handleError(err: HttpErrorResponse) {
