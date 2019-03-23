@@ -13,17 +13,14 @@
 
   <div class="detaillBox" *ngIf="parkDetail">
     <div class="detaillBox__img">
-      <ion-img src="https://loremflickr.com/cache/resized/7800_33156639058_9405348865_320_240_nofilter.jpg"></ion-img>
+        <div id="map"></div>
     </div>
     <div class="detaillBox__descripton">
       <div class="detaillBox__name">
         {{parkDetail.nombre_Parque}}
       </div>
       <div class="detaillBox__stars">
-        ttttt
-      </div>
-      <div class="detaillBox__address">
-        {{parkDetail.nombre_Parque}}
+        Localidad: {{ parkDetail.localidad}}
       </div>
     </div>
     <div class="detaillBox__dataill">
@@ -31,10 +28,25 @@
     </div>
   </div>
 
-    <ion-list>
+    <ion-list *ngIf="parkDetail">
       <ion-item>
-        cccccccccccc
+        UPZ: {{ parkDetail.uPZ  }}
       </ion-item>
+      <ion-item>
+        Idebtificador: {{ parkDetail.identificador_parque }}
+        </ion-item>
+        <ion-item>
+        Estrato: {{ parkDetail.estrato }}
+        </ion-item>
+        <ion-item>
+        POT: {{ parkDetail.codigo_POT }}
+        </ion-item>
+        <ion-item>
+        Certificación: {{ parkDetail.estado_Certificacion }}
+        </ion-item>
+        <ion-item>
+        Clasificación: {{ parkDetail.clasificacion_Parque }}
+        </ion-item>
     </ion-list>
 
 </ion-content>

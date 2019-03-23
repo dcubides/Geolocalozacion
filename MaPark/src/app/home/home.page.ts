@@ -89,8 +89,6 @@ filtrarParque() {
       this.AddMarker(parseFloat(this.parques[i].coord_y), parseFloat(this.parques[i].coord_x), this.parques[i].nombre_Parque, 'parking' , this.parques[i].parqueId);
     }
 
-
-    console.log(this.parques);
   //  marker.setMap(this.mapRef);
 
     google.maps.event.addListenerOnce(this.mapRef, 'idle', () => {
@@ -129,9 +127,9 @@ filtrarParque() {
     const infowindow = new google.maps.InfoWindow({
       content: `
           <div>
-            <h3>
+            <h4>
               ${nombre}
-            </h3>
+            </h4>
             <a href="/home/:${id}">Go to Detail</a>
           </div>
         `
@@ -139,7 +137,6 @@ filtrarParque() {
 
     marker.addListener('click', function() {
       infowindow.open(this.mapRef, marker);
-      // console.log(id);
     });
 
     // marker.setMap(this.mapRef);

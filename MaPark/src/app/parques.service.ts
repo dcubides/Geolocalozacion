@@ -22,7 +22,7 @@ export class ParquesService {
     
     getParqueById(id: number): Observable<any[]> {
       return this.http.get<any[]>(this.parquesUrl+'/'+id).pipe(
-        tap(data => console.log('All: ' + JSON.stringify(data) )), //+ JSON.stringify(data)
+        tap(data => console.log(this.parquesUrl+'/'+id)), //+ JSON.stringify(data)
         catchError(this.handleError)
       )
 
