@@ -19,8 +19,7 @@ export class HomePage implements OnInit  {
 	errorMessage = '';
 
 	_filtroParque = 'UB';
-	valorCop:number = 500000;
-	sliceTest:string = 'lorem leonardo';
+	//sliceTest: string = 'lorem leonardo';
 
 	get filtroParque(): string {
 		return this._filtroParque;
@@ -67,7 +66,7 @@ export class HomePage implements OnInit  {
 		//this.loadMap();
 	}
 
-	alTerminardeCArgar(): void{
+	alTerminardeCArgar(): void {
 		this.loadMap();
 	}
 
@@ -87,7 +86,7 @@ export class HomePage implements OnInit  {
 		});
 
 		for (let i = 0; i < this.parques.length; i++) {
-			this.AddMarker(parseFloat(this.parques[i].coord_y), parseFloat(this.parques[i].coord_x), this.parques[i].nombre_Parque, 'parking' , this.parques[i].parqueId);
+			this.AddMarker(this.parques[i].coord_y, this.parques[i].coord_x, this.parques[i].nombre_Parque, 'parking' , this.parques[i].id);
 		}
 
 	//  marker.setMap(this.mapRef);
@@ -149,7 +148,7 @@ export class HomePage implements OnInit  {
 						<h4>
 							${nombre}
 						</h4>
-						<a href="/home/:${id}">Go to Detail</a>
+						<a href="/home/${id}">Go to Detail</a>
 					</div>
 				`
 		});
@@ -160,12 +159,6 @@ export class HomePage implements OnInit  {
 
 		// marker.setMap(this.mapRef);
 	}
-
-	private openDetalle(id:number){
-		console.log(id);
-	}
-
-
 
 	private async dondEestoy() {
 		const rta = await this.geolocation.getCurrentPosition();

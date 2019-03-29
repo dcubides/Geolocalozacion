@@ -12,9 +12,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 
-import { DetailParkComponent } from './home/detail-park/detail-park.component';
-
-
 
 
 @NgModule({

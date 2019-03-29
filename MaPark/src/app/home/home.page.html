@@ -3,7 +3,6 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        {{valorCop | currency:'COP'}}
         <ion-searchbar #search placeholder="Nombre parque" [(ngModel)]="filtroParque"></ion-searchbar>
         
     </ion-toolbar>
@@ -11,6 +10,6 @@
 
 <ion-content>
     <div id="map"></div>
-   <ion-button id="mas"> Nuevo Parque</ion-button>
+    <ion-button id="mas" href="/newpark">Nuevo Parque</ion-button>
    
 </ion-content>

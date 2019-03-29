@@ -8,23 +8,23 @@ import { catchError, tap, map } from 'rxjs/Operators';
 })
 export class ParquesService {
 
-  private parquesUrl = 'https://apidce.azurewebsites.net/api/GEOParques';
+  //private parquesUrl = 'https://apidce.azurewebsites.net/api/GEOParques';
+  private parquesUrl = 'https://apigeolocalizacion.azurewebsites.net/api/geoparques';
 
   constructor(private http: HttpClient) { }
 
-  getParques(): Observable<any[]>{
+  getParques(): Observable<any[]> {
     return this.http.get<any[]>(this.parquesUrl).pipe(
       tap(data => console.log('All: ' )), //+ JSON.stringify(data)
       catchError(this.handleError)
       );
     }
-    
-    
+
     getParqueById(id: number): Observable<any[]> {
-      return this.http.get<any[]>(this.parquesUrl+'/'+id).pipe(
-        tap(data => console.log(this.parquesUrl+'/'+id)), //+ JSON.stringify(data)
+      return this.http.get<any[]>(this.parquesUrl + '/' + id).pipe(
+        tap(data => console.log(this.parquesUrl + '/' + id)), //+ JSON.stringify(data)
         catchError(this.handleError)
-      )
+      );
 
   }
 
