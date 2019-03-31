@@ -4,6 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -15,14 +16,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyAFVoJtcUIfzD3j981ONH3HDaDeFRYz3R4",
-  authDomain: "mappark-f1940.firebaseapp.com",
-  databaseURL: "https://mappark-f1940.firebaseio.com",
-  projectId: "mappark-f1940",
-  storageBucket: "mappark-f1940.appspot.com",
-  messagingSenderId: "529655158454"
-};
+import { firebaseConfig } from './services/authentication.service';
 
 
 @NgModule({
@@ -35,7 +29,8 @@ export const firebaseConfig = {
     AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     StatusBar,
