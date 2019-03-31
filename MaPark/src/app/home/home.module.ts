@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import { DetailParkComponent } from './detail-park/detail-park.component';
 
+
 @NgModule({
   imports: [
     CommonModule,

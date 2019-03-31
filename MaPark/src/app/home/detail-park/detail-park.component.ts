@@ -30,13 +30,10 @@ export class DetailParkComponent implements OnInit {
   
   ngOnInit() {
     this.id = this.routes.snapshot.paramMap.get('id');
-    let dd = this.routes.snapshot.paramMap.get('id');
-    dd = dd.replace(':' , '');
-    console.log(dd);
-    console.log("↓↓onInit");
-    console.log(this.parkDetail); 
+    let identificador: string = this.routes.snapshot.paramMap.get('id');
+    identificador = identificador.replace(':' , '');
 
-    this.parqueervice.getParqueById(parseInt(dd)).subscribe(
+    this.parqueervice.getParqueById(parseInt(identificador)).subscribe(
       data => this.parkDetail = data,
       error => this.errorMessage = <any>error,
       () =>  this.loadMap(this.parkDetail)
@@ -45,11 +42,10 @@ export class DetailParkComponent implements OnInit {
   }
 
   async loadMap(data: any ) {
-    console.log("↓↓loadmap");
-    console.log(this.parkDetail);
+
     const loading = await this.loadCtrl.create();
     loading.present();
-    
+
     const mapEle: HTMLElement = document.getElementById('map');
 
     this.mapRef = new google.maps.Map(mapEle, {
@@ -93,10 +89,9 @@ export class DetailParkComponent implements OnInit {
       title: nombre,
       icon :  icons[type].icon
     });
-    
+
     // marker.setMap(this.mapRef);
   }
 
 
-  
 }
