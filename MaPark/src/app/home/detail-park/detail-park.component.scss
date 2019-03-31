@@ -8,8 +8,21 @@
         color: #fff;
         padding: 15px;
         background-color: #4285F4;
+        &_data{
+            &-name{
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 40px;
+            }
+            &-stars{
+                background-color: orange;
+            }
+            &-address{
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
     }
-    &__dataill{}
 }
 
 #map {
@@ -17,4 +30,30 @@
     height: 300px;
     display: block;
 
+}
+
+.listResults{
+    
+}
+
+ion-list{
+    margin-top: 15px;
+    ion-item{
+        padding: 5px 0;
+        --min-height: none;
+        --inner-border-width: 0px;
+        div{
+            h3,p{
+                margin: 0;
+                font-weight: 400;
+            }
+            h3{
+                font-size: 16px;
+            }
+            p{
+                opacity: 0.38;
+                font-size: 14px;
+            }
+        }
+    }
 }

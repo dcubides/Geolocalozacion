@@ -1,52 +1,74 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <!-- <ion-title>
-            Detalle parque
-        </ion-title> -->
-    </ion-toolbar>
+		<ion-toolbar>
+				<ion-buttons slot="start">
+						<ion-menu-button></ion-menu-button>
+				</ion-buttons>
+				<!-- <ion-title>
+						Detalle parque
+				</ion-title> -->
+		</ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <div class="detaillBox" *ngIf="parkDetail">
-    <div class="detaillBox__img">
-        <div id="map"></div>
-    </div>
-    <div class="detaillBox__descripton">
-      <div class="detaillBox__name">
-        {{parkDetail.nombre_Parque}}
-      </div>
-      <div class="detaillBox__stars">
-        Localidad: {{ parkDetail.localidad}}
-      </div>
-    </div>
-    <div class="detaillBox__dataill">
-      
-    </div>
-  </div>
+	<div class="detaillBox" *ngIf="parkDetail">
+		<div class="detaillBox__img">
+				<div id="map"></div>
+		</div>
+		<div class="detaillBox__descripton">
+			<div class="detaillBox__descripton_data detaillBox__descripton_data-name">
+				{{parkDetail.nombre_Parque}}
+			</div>
+			<div class="detaillBox__descripton_data detaillBox__descripton_data-stars">
+				
+			</div>
+			<div class="detaillBox__descripton_data detaillBox__descripton_data-address">
+				{{ parkDetail.localidad}}
+			</div>
+		</div>
+	</div>
 
-    <ion-list *ngIf="parkDetail">
-      <ion-item>
-        UPZ: {{ parkDetail.uPZ  }}
-      </ion-item>
-      <ion-item>
-        Idebtificador: {{ parkDetail.identificador_parque }}
-        </ion-item>
-        <ion-item>
-        Estrato: {{ parkDetail.estrato }}
-        </ion-item>
-        <ion-item>
-        POT: {{ parkDetail.codigo_POT }}
-        </ion-item>
-        <ion-item>
-        Certificación: {{ parkDetail.estado_Certificacion }}
-        </ion-item>
-        <ion-item>
-        Clasificación: {{ parkDetail.clasificacion_Parque }}
-        </ion-item>
-    </ion-list>
+	
+
+		<ion-list class="listResults" *ngIf="parkDetail">
+
+			<ion-item>
+				<div>
+					<h3> UPZ: </h3>
+					<p> {{ parkDetail.uPZ  }} </p>
+				</div>
+			</ion-item>
+
+			<ion-item>
+				<div>
+					<h3>Idebtificador:</h3>
+					<p> {{ parkDetail.identificador_parque }} </p>
+				</div>
+			</ion-item>
+			<ion-item>
+				<div>
+					<h3>Estrato:</h3>
+					<p> {{ parkDetail.estrato }} </p>
+				</div>
+			</ion-item>
+			<ion-item>
+				<div>
+					<h3>POT:</h3>
+					<p> {{ parkDetail.codigo_POT }} </p>
+				</div>
+			</ion-item>
+			<ion-item>
+				<div>
+					<h3>Certificación:</h3>
+					<p> {{ parkDetail.estado_Certificacion }} </p>
+				</div>
+			</ion-item>
+			<ion-item>
+				<div>
+					<h3>Clasificación:</h3>
+					<p> {{ parkDetail.clasificacion_Parque }} </p>
+				</div>
+			</ion-item>
+		</ion-list>
 
 </ion-content>

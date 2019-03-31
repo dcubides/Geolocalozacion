@@ -34,7 +34,10 @@ export class DetailParkComponent implements OnInit {
     identificador = identificador.replace(':' , '');
 
     this.parqueervice.getParqueById(parseInt(identificador)).subscribe(
-      data => this.parkDetail = data,
+      data => {
+        this.parkDetail = data;
+        console.log(data);
+      },
       error => this.errorMessage = <any>error,
       () =>  this.loadMap(this.parkDetail)
     );

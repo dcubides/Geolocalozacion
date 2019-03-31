@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> {{title}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form (ngSubmit)="loginUser()">
+    <!-- with name set -->
+    <ion-item>
+      <ion-label>Todo</ion-label>
+      <ion-input type="text" [(ngModel)]="title" name="title"></ion-input>
+    </ion-item>
+  </form>
+
+</ion-content>

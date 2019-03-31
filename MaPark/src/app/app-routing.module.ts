@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  },  { path: 'newpark', loadChildren: './newpark/newpark.module#NewparkPageModule' }
+  },
+  { path: 'newpark',
+    loadChildren: './newpark/newpark.module#NewparkPageModule'
+  },  { path: 'login-page', loadChildren: './login-page/login-page.module#LoginPagePageModule' }
+
 
 
 ];
