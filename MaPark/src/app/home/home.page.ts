@@ -141,7 +141,7 @@ export class HomePage implements OnInit  {
 			title: nombre,
 			icon :  icons[type].icon
 		});
-		
+
 		const infowindow = new google.maps.InfoWindow({
 			content: `
 					<div>

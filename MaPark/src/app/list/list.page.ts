@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ParquesService } from './../parques.service';
 
 @Component({
   selector: 'app-list',
@@ -20,7 +21,15 @@ export class ListPage implements OnInit {
     'build'
   ];
   public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
+
+  parques: any[] = [];
+  errorMessage = '';
+
+  constructor(private parquesService: ParquesService) {
+
+  }
+
+  MostrarDatos(): void {
     for (let i = 1; i < 11; i++) {
       this.items.push({
         title: 'Item ' + i,
@@ -31,6 +40,10 @@ export class ListPage implements OnInit {
   }
 
   ngOnInit() {
+    this.parquesService.getParques().subscribe(
+      parques => this.parques = parques,
+      error => this.errorMessage = <any>error
+    );
   }
   // add back when alpha.4 is out
   // navigate(item) {
