@@ -7,7 +7,9 @@ const routes: Routes = [
   //   redirectTo: 'home',
   //   pathMatch: 'full'
   // },
-  { path: '', loadChildren: './login-page/login-page.module#LoginPagePageModule' },
+  { path: '',
+   loadChildren: './login-page/login-page.module#LoginPagePageModule'
+  },
   {
     path: 'home',
     loadChildren: './home/home.module#HomePageModule'
@@ -19,7 +21,9 @@ const routes: Routes = [
   { path: 'newpark',
     loadChildren: './newpark/newpark.module#NewparkPageModule'
   },
-  { path: 'login-page', loadChildren: './login-page/login-page.module#LoginPagePageModule' }
+  { path: 'login-page',
+   loadChildren: './login-page/login-page.module#LoginPagePageModule'
+   }
 
 
 

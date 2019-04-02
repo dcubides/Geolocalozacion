@@ -15,12 +15,17 @@ export class AppComponent {
   rootPage:any = '';
   public appPages = [
     {
-      title: 'Home',
+      title: 'Inicio',
       url: '/home',
       icon: 'home'
     },
     {
-      title: 'List',
+      title: 'Nuevo parque',
+      url: '/newpark',
+      icon: 'add'
+    },
+    {
+      title: 'Informe de parques',
       url: '/list',
       icon: 'list'
     } 

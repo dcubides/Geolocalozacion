@@ -25,7 +25,6 @@ export class ParquesService {
         tap(data => console.log(this.parquesUrl + '/' + id)), //+ JSON.stringify(data)
         catchError(this.handleError)
       );
-
   }
 
   private handleError(err: HttpErrorResponse) {
