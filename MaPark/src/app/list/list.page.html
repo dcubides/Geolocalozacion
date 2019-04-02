@@ -10,10 +10,11 @@
 </ion-header>
 
 <ion-content>
-
- <!-- <ion-button (click)="toggleInfiniteScroll()" expand="block">
-      Toggle Infinite Scroll
-    </ion-button>-->
+<div>
+    <ion-icon name="search"></ion-icon>
+  <input type='text' [(ngModel)]="listFilter"/>
+  <ion-button color="primary" (onclick)="buscarParque()">Buscar</ion-button>
+</div>
 
     <ion-list>
       <ion-item *ngFor="let item of dataList">
