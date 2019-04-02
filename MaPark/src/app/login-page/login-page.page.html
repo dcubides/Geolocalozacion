@@ -2,8 +2,9 @@
   <ion-toolbar>
 	<ion-title>loginPage</ion-title>
 	<p>
-		TUTORIAL: 
-		<a target="_blank" href="https://reviblog.net/2017/08/05/tutorial-de-ionic-firebase-parte-1-autenticacion-con-correo-y-contrasena/"></a>
+		<a target="_blank" href="https://reviblog.net/2017/08/05/tutorial-de-ionic-firebase-parte-1-autenticacion-con-correo-y-contrasena/">
+			tutorial
+		</a>
 	</p>
   </ion-toolbar>
 </ion-header>
@@ -47,12 +48,22 @@
 
 				<button
 					ion-button 
-					(click)="signin()"
+					(click)="createUser()"
 					type="submit"
 					color="secondary"
 					block
 				>
-					Dar de alta
+					Crear Usuario
+				</button>
+				
+				<button
+					ion-button 
+					(click)="logOut()"
+					type="submit"
+					color="secondary"
+					block
+				>
+					Salir
 				</button>
 			</div>
 		</form>

@@ -22,7 +22,31 @@ export class AuthenticationService {
 			// El usuario se ha creado correctamente.
 		})
 		.catch(err=>Promise.reject(err))
-	 }
+	}
+
+	// ↓↓ Login User
+	loginUser( email:string , password:string ){
+		return this.afAuth.auth.signInWithEmailAndPassword(email , password)
+		.then(
+			user=>Promise.resolve(user)
+		)
+		.catch(
+			err=>Promise.reject(err)
+		)
+	}
+
+	// Devuelve la session
+	get Session(){
+		return this.afAuth.authState;
+	}
+	
+	// Devuelve la session
+	logout(){
+		this.afAuth.auth.signOut()
+		.then( close => {
+			console.log(close);
+		} )
+	}
 
 }
 
