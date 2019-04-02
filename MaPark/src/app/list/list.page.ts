@@ -7,7 +7,7 @@ import { IonInfiniteScroll, NavController } from '@ionic/angular';
   templateUrl: 'list.page.html',
   styleUrls: ['list.page.scss']
 })
-export class ListPage {
+export class ListPage  implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
   dataList: any[] = [];
@@ -16,22 +16,29 @@ export class ListPage {
 
   constructor(private parqueService: ParquesService) {
 
-    //this.cargarDatos();
-    //this.dataList = [];
-    this.parqueService.getParques().subscribe(
-			parques => this.parques = parques,
-      error => this.errorMessage = <any>error,
-			() => this.cargarDatos()
-		);
+  //  this.dataList = [];
+ //   this.parqueService.getParques().subscribe(
+  //    parques => {this.parques = parques,
+  //    this.filteredParks = this.parques;
+  //  },
+  //    error => this.errorMessage = <any>error,
+  //    () => this.cargarDatos()
+  //    );
+  }
 
+  ngOnInit(): void {
+    this.parqueService.getParques().subscribe(
+      parques => this.parques = parques,
+      error => this.errorMessage = <any>error,
+      () => this.cargarDatos()
+      );
   }
 
   cargarDatos() {
-		for (let i = 0; i < 10; i++) {
-      this.dataList.concat(this.parques);
-      console.log(this.dataList);
+    for (let i = 0; i < 10; i++) {
+      this.dataList.push(this.parques[i]);
     }
-	}
+   }
 
 
 
@@ -39,12 +46,10 @@ export class ListPage {
 
     setTimeout(() => {
       console.log('Done');
-      for (let i = 0; i < 10; i++) {
-
-        this.dataList.concat(this.parques);
-        console.log(this.dataList);
+      for (let i = 0; i < 10 ; i++) {
+        this.dataList.push(this.parques[i]);
+        event.target.complete();
       }
-      event.target.complete();
 
       // App logic to determine if all data is loaded
       // and disable the infinite scroll
