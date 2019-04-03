@@ -1,13 +1,139 @@
+
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Nuevo Parque</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+          Nuevo Parque
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
 
 <ion-content>
-  <div>
-      <ion-button id="reg" href="/home">Regresar</ion-button>
-  </div>
+
+ <form [formGroup]="todo" (ngSubmit)="logForm()">
   
-sdfdsfds
+  <ion-item>
+      <ion-icon name="arrow-dropright"></ion-icon>
+    <ion-label> Id parque en IDRD: </ion-label>
+    <ion-input type="number" formControlName="parqueId"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon name="arrow-dropright"></ion-icon>
+    <ion-label> Identificador parque en IDRD: </ion-label>
+    <ion-input type="text" formControlName="identificador_parque"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-icon name="arrow-dropright"></ion-icon>
+    <ion-label> Estrato: </ion-label>
+    <ion-input type="number" formControlName="estrato"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-icon name="arrow-dropright"></ion-icon>
+      <ion-label> UPZ: </ion-label>
+      <ion-input type="number" formControlName="upz"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-icon name="arrow-dropright"></ion-icon>
+        <ion-label> Localidad:</ion-label>
+        <ion-input type="text" formControlName="localidad"></ion-input>
+      </ion-item>
+
+  <ion-item>
+      <ion-icon name="arrow-dropright"></ion-icon>
+     <ion-label> Estado certificación: </ion-label>
+    <ion-select placeholder="Seleccione" formControlName="estado_Certificacion">
+        <ion-select-option value="CERTIFICADO">CERTIFICADO</ion-select-option>
+        <ion-select-option value="SIN CERTIFICAR">SIN CERTIFICAR</ion-select-option>
+      </ion-select>
+  </ion-item>
+
+  <ion-item>
+      <ion-icon name="arrow-dropright"></ion-icon>
+      <ion-label> Clasificación parque: </ion-label>
+     <ion-select placeholder="Seleccione" formControlName="clasificacion_Parque">
+         <ion-select-option value="Bolsillo">Bolsillo</ion-select-option>
+         <ion-select-option value="Vecinal">Vecinal</ion-select-option>
+         <ion-select-option value="Zonal Existente">Zonal Existente</ion-select-option>
+         <ion-select-option value="Zonal Propuesto">Zonal Propuesto</ion-select-option>
+       </ion-select>
+   </ion-item>
+
+   <ion-item>
+      <ion-icon name="arrow-dropright"></ion-icon>
+      <ion-label> Nombre del parque: </ion-label>
+      <ion-input type="text" formControlName="nombre_Parque"></ion-input>
+    </ion-item>
+
+      <ion-item>
+          <ion-icon name="arrow-dropright"></ion-icon>
+          <ion-label> Administración  del parque:</ion-label>
+          <ion-input type="text" formControlName="administración_Parque"></ion-input>
+        </ion-item>
+
+     <ion-item>
+        <ion-icon name="arrow-dropright"></ion-icon>
+       <ion-label> Código localidad: </ion-label>
+      <ion-input type="number" formControlName="codigo_Localidad"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-icon name="arrow-dropright"></ion-icon>
+        <ion-label> Código POT:</ion-label>
+       <ion-input type="number" formControlName="codigo_POT"></ion-input>
+     </ion-item>
+
+     <ion-item>
+        <ion-icon name="arrow-dropright"></ion-icon>
+        <ion-label> longitud: </ion-label>
+       <ion-input type="number" formControlName="coord_x"></ion-input>
+     </ion-item>
+
+     <ion-item>
+        <ion-icon name="arrow-dropright"></ion-icon>
+        <ion-label>latitud: </ion-label>
+       <ion-input type="number" formControlName="coord_y"></ion-input>
+     </ion-item>
+
+
+  
+
+    <ion-fab>
+        <ion-button ion-fab mini><ion-icon name="map"></ion-icon>Ubicación</ion-button>
+   <ion-button ion-fab mini type="submit" [disabled]="!todo.valid"><ion-icon name="add"></ion-icon>Guardar</ion-button>
+  </ion-fab>
+
+</form>
+
+<!--<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-badge color="danger">0</ion-badge>
+    <ion-fab-button>
+      <ion-icon name="cog"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button>
+        <ion-icon name="cart"></ion-icon>
+      </ion-fab-button>
+      <ion-label>lavel 1</ion-label>
+
+      <ion-fab-button>
+        <ion-icon name="clipboard"></ion-icon>
+      </ion-fab-button>
+      <ion-label>lavel 2</ion-label>
+
+      <ion-fab-button>
+        <ion-icon name="archive"></ion-icon>
+      </ion-fab-button>
+      <ion-label>lavel 3</ion-label>
+
+    </ion-fab-list>
+  </ion-fab>-->
+
 </ion-content>
