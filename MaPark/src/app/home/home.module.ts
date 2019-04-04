@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { DetailParkComponent } from './detail-park/detail-park.component';
+import { InventoryTutorialComponent } from './detail-park/inventory-tutorial/inventory-tutorial.component';
 
 
 @NgModule({
@@ -19,11 +20,15 @@ import { DetailParkComponent } from './detail-park/detail-park.component';
         component: HomePage
       },
       {
-        path: ':id',
+        path: 'detail/:id',
         component: DetailParkComponent
+      },
+      {
+        path: 'tutorial/:id',
+        component: InventoryTutorialComponent
       }
     ])
   ],
-  declarations: [HomePage, DetailParkComponent]
+  declarations: [HomePage, DetailParkComponent, InventoryTutorialComponent]
 })
 export class HomePageModule {}

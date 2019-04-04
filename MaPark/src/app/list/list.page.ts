@@ -21,7 +21,7 @@ export class ListPage  implements OnInit {
 
   constructor(private parqueService: ParquesService) {
     this.inicio = 0;
-    this.fin = 10;
+    this.fin = 20;
   //  this.dataList = [];
  //   this.parqueService.getParques().subscribe(
   //    parques => {this.parques = parques,
@@ -75,8 +75,8 @@ export class ListPage  implements OnInit {
       }
       */
 
-      this.inicio = this.inicio + 10;
-      this.fin = this.fin + 10;
+      this.inicio = this.inicio + 20;
+      this.fin = this.fin + 20;
       this.dataList =  this.dataList.concat(this.filteredParques.slice(this.inicio, this.fin));
 
       event.target.complete();
@@ -89,7 +89,7 @@ export class ListPage  implements OnInit {
       if (this.dataList.length >= this.parques.length) {
         event.target.disabled = true;
         this.inicio = 0;
-        this.fin = 10;
+        this.fin = 20;
       }
 
     }, 500);

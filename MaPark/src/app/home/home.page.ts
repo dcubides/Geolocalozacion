@@ -148,7 +148,7 @@ export class HomePage implements OnInit  {
 						<h4>
 							${nombre}
 						</h4>
-						<a href="/home/${id}">Go to Detail</a>
+						<a href="/home/detail/${id}">Go to Detail</a>
 					</div>
 				`
 		});

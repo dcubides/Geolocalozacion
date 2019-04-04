@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 
 import { ParquesService } from './../../parques.service';
+
 
 
 declare var google;
@@ -16,18 +17,16 @@ export class DetailParkComponent implements OnInit {
 
   constructor(
     private routes: ActivatedRoute,
+    private route: Router,
     private parqueervice: ParquesService,
     private loadCtrl: LoadingController
     ) { }
 
-  
   id;
   mapRef = null;
   parkDetail: any[] = [];
   errorMessage: any = '';
-  
-  
-  
+
   ngOnInit() {
     this.id = this.routes.snapshot.paramMap.get('id');
     let identificador: string = this.routes.snapshot.paramMap.get('id');
@@ -61,7 +60,7 @@ export class DetailParkComponent implements OnInit {
     });
 
     google.maps.event.addListenerOnce(this.mapRef, 'idle', () => {
-      this.AddMarker(parseFloat(data.coord_y), parseFloat(data.coord_x) ,'pepito perez', 'parking');
+      this.AddMarker(parseFloat(data.coord_y), parseFloat(data.coord_x) , 'pepito perez', 'parking');
         loading.dismiss();
       });
 
@@ -94,6 +93,10 @@ export class DetailParkComponent implements OnInit {
     });
 
     // marker.setMap(this.mapRef);
+  }
+
+  irTutorial() {
+    this.route.navigateByUrl('home/tutorial/' + this.id);
   }
 
 
