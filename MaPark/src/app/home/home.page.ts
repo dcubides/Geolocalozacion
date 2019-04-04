@@ -1,5 +1,5 @@
 import { ParquesService } from './../parques.service';
-import { Component, OnInit, AfterViewInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';

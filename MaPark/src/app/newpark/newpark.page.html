@@ -26,12 +26,20 @@
     <ion-label> Identificador parque en IDRD: </ion-label>
     <ion-input type="text" formControlName="identificador_parque"></ion-input>
   </ion-item>
-  
+
   <ion-item>
     <ion-icon name="arrow-dropright"></ion-icon>
     <ion-label> Estrato: </ion-label>
-    <ion-input type="number" formControlName="estrato"></ion-input>
-  </ion-item>
+   <ion-select placeholder="Seleccione" formControlName="estrato">
+       <ion-select-option value="1">1</ion-select-option>
+       <ion-select-option value="2">2</ion-select-option>
+       <ion-select-option value="3">3</ion-select-option>
+       <ion-select-option value="4">4</ion-select-option>
+       <ion-select-option value="5">5</ion-select-option>
+       <ion-select-option value="6">6</ion-select-option>
+       <ion-select-option value="7">7</ion-select-option>
+     </ion-select>
+ </ion-item>
 
   <ion-item>
       <ion-icon name="arrow-dropright"></ion-icon>
@@ -92,20 +100,20 @@
      <ion-item>
         <ion-icon name="arrow-dropright"></ion-icon>
         <ion-label> longitud: </ion-label>
-       <ion-input type="number" formControlName="coord_x"></ion-input>
+       <ion-input type="number" value="{{longitud}}" formControlName="coord_x"></ion-input>
      </ion-item>
 
      <ion-item>
         <ion-icon name="arrow-dropright"></ion-icon>
         <ion-label>latitud: </ion-label>
-       <ion-input type="number" formControlName="coord_y"></ion-input>
+       <ion-input type="number" value="{{latitud}}" formControlName="coord_y"></ion-input>
      </ion-item>
 
 
   
 
     <ion-fab>
-        <ion-button ion-fab mini><ion-icon name="map"></ion-icon>Ubicación</ion-button>
+        <ion-button ion-fab mini (click)="cargarUbicacion()"><ion-icon name="map"></ion-icon>Ubicación</ion-button>
    <ion-button ion-fab mini type="submit" [disabled]="!todo.valid"><ion-icon name="add"></ion-icon>Guardar</ion-button>
   </ion-fab>
 

@@ -32,7 +32,7 @@ export class LoginPagePage implements OnInit {
 		} )
 	}
 	
-	login(){
+	login() {
 		this.auth.loginUser(this.user.email , this.user.password)
 		.then( user => {
 			console.log('Login Exitoso');
