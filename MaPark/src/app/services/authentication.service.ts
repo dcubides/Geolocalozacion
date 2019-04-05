@@ -10,7 +10,7 @@ export class AuthenticationService {
 	constructor(
 		private afAuth :  AngularFireAuth
 	) {
-		console.log('Hello AuthProvider Provider');
+		// console.log('Hello AuthProvider Provider');
 	}
 
     // Registro de usuario
