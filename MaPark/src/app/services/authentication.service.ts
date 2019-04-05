@@ -40,6 +40,19 @@ export class AuthenticationService {
 		return this.afAuth.authState;
 	}
 	
+	getSessionStatus(){
+		this.Session.subscribe( session => {
+			if(session){
+				return true
+			}
+			else{
+				return false
+			}
+		});
+	}
+
+	
+	
 	// Devuelve la session
 	logout(){
 		this.afAuth.auth.signOut()
