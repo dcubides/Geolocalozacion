@@ -40,9 +40,14 @@ export class AppComponent {
   }
 
   initializeApp() {
-
-    let status : boolean = this.auth.getSessionStatus()
     
+    this.auth.Session.subscribe(session => {
+      if(session){
+        console.log('log ON');
+      } else{
+        console.log('log OFF');
+      }
+    });
 
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
