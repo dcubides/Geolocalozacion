@@ -12,7 +12,6 @@ import { Session } from 'protractor';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  rootPage:any = '';
   public appPages = [
     {
       title: 'Inicio',
@@ -44,10 +43,8 @@ export class AppComponent {
     
     this.auth.Session.subscribe(session => {
       if(session){
-        this.rootPage = 'home';
         console.log('log ON');
       } else{
-        this.rootPage = '/';
         console.log('log OFF');
       }
     });
