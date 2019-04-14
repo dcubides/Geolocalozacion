@@ -12,7 +12,7 @@ export class LoginGuard implements CanActivate {
 
     canActivate() {
         // If the user is not logged in we'll send them back to the home page
-        if( this.authService.getSessionStatus ){
+        if( this.authService.authenticated ){
           return true
         }
         else{

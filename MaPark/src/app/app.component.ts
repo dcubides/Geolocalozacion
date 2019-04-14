@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthenticationService } from './services/authentication.service';
 import { Session } from 'protractor';
+import { auth } from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -40,19 +41,28 @@ export class AppComponent {
   }
 
   initializeApp() {
+
+    // this.auth.authState.subscribe(data => {
+    //   console.log(data);
+    // })
     
-    this.auth.Session.subscribe(session => {
-      if(session){
-        console.log('log ON');
-      } else{
-        console.log('log OFF');
-      }
-    });
+    console.log(this.auth.authState);
+    
+    
+    // this.auth.Session.subscribe(session => {
+    //   if(session){
+    //     console.log('log ON');
+    //   } else{
+    //     console.log('log OFF');
+    //   }
+    // });
 
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
+    
   }
 
   logOut(){

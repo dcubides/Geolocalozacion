@@ -43,6 +43,10 @@ export class LoginPagePage implements OnInit {
 			console.log(err);
 		} )
 	}
+
+	logOut(){
+		this.auth.logout();
+	}
 	
 
 }
