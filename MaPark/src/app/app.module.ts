@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import { firebaseConfig } from './services/authentication.service';
+import { LoginGuard } from './guards/login.guard';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { firebaseConfig } from './services/authentication.service';
     StatusBar,
     SplashScreen,
     Geolocation,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })

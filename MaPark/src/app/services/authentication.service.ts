@@ -7,6 +7,8 @@ import * as firebase from 'firebase/app';
 })
 export class AuthenticationService {
 
+	authState: any = null;
+
 	constructor(
 		private afAuth :  AngularFireAuth
 	) {
@@ -36,11 +38,13 @@ export class AuthenticationService {
 	}
 
 	// Devuelve la session
-	get Session(){
-		return this.afAuth.authState;
+	// Returns true if user is logged in
+	
+	get authenticated(): boolean {
+		return this.authState !== null;
 	}
 	
-	// Devuelve la session
+	// Cerrar session
 	logout(){
 		this.afAuth.auth.signOut()
 		.then( close => {
