@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="primary">
 	<ion-title>login</ion-title>
 	<p>
@@ -7,32 +7,59 @@
 		</a>
 	</p>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
+<ion-content class="homePage">
+
+	<div class="welcomeBar">
+
+		<div class="welcomeBar__logo">
+			<ion-img src="../../assets/img/logo/logo_home.png"></ion-img>
+		</div>
+		
+		
+		<h1>
+			Bienvenido a MaPark
+		</h1>
+		<h2>
+			Inicia sesión para continuar
+		</h2>
+	</div>
 
 	<ion-list>
 		<form>
 			<ion-item>
-				<ion-label position="floating">Email</ion-label>
+				<!-- <ion-label position="floating">
+					<ion-icon padding-right name="contact"></ion-icon>
+					Usuario
+				</ion-label> -->
 				<ion-input
+					class="inputShadow"
+					placeholder="Usuario"
 					[(ngModel)]="user.email"
 					name="email"
 					type="text"
 					autocapitalize="off"
 					required
 				>
+					<ion-icon padding-right name="contact"></ion-icon>
 				</ion-input>
 			</ion-item>
 
 			<ion-item>
-				<ion-label position="floating">Contraseña</ion-label>
+				<!-- <ion-label position="floating">
+					<ion-icon padding-right name="eye-off"></ion-icon>
+					Contraseña
+				</ion-label> -->
 				<ion-input
+					class="inputShadow"
+					placeholder="Contraseña"
 					[(ngModel)]="user.password"
 					name="password"
 					type="password"
 					required
 				>
+					<ion-icon padding-right name="eye-off"></ion-icon>
 				</ion-input>
 			</ion-item>
 			<div padding>
@@ -41,7 +68,7 @@
 						(click)="login()"
 						type="submit"
 						color="primary"
-						block
+						expand="block"
 				>
 					Login
 				</ion-button>
@@ -51,7 +78,7 @@
 					(click)="createUser()"
 					type="submit"
 					color="secondary"
-					block
+					expand="block"
 				>
 					Crear Usuario
 				</ion-button>
@@ -61,7 +88,7 @@
 					(click)="logOut()"
 					type="submit"
 					color="secondary"
-					block
+					expand="block"
 				>
 					Salir
 				</ion-button>
