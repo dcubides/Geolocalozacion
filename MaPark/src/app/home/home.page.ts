@@ -86,7 +86,13 @@ export class HomePage implements OnInit  {
 		});
 
 		for (let i = 0; i < this.parques.length; i++) {
-			this.AddMarker(this.parques[i].coord_y, this.parques[i].coord_x, this.parques[i].nombre_Parque, 'parking' , this.parques[i].id);
+			this.AddMarker(
+				this.parques[i].coord_y,
+				this.parques[i].coord_x,
+				this.parques[i].nombre_Parque,
+				'parking',
+				this.parques[i].id
+			);
 		}
 
 	//  marker.setMap(this.mapRef);
@@ -117,17 +123,18 @@ export class HomePage implements OnInit  {
 	}
 
 	private AddMarker(lat: number, lng: number, nombre: string, type: string, id: number ) {
-		const iconBase = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
+		// const iconBase = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
+		const iconBase = '../src/assets/img/map';
 
 			const icons = {
 				parking: {
-					icon: iconBase + 'parking_lot_maps.png'
+					// icon: iconBase + 'park_location.svg'
 				},
 				library: {
-					icon: iconBase + 'library_maps.png'
+					// icon: iconBase + 'library_maps.png'
 				},
 				info: {
-					icon: iconBase + 'info-i_maps.png'
+					// icon: iconBase + 'info-i_maps.png'
 				}
 			};
 
@@ -144,18 +151,21 @@ export class HomePage implements OnInit  {
 
 		const infowindow = new google.maps.InfoWindow({
 			content: `
-					<div>
+					<div class="infoWindow">
 						<h4>
 							${nombre}
 						</h4>
-						<a href="/home/detail/${id}">Go to Detail</a>
+						<ion-button expand="block" href="/home/detail/${id}">Ver parque</ion-button>
 					</div>
 				`
 		});
 
-		marker.addListener('click', function() {
-			infowindow.open(this.mapRef, marker);
-		});
+		if(type == 'parking'){
+			marker.addListener('click', function() {
+				infowindow.open(this.mapRef, marker);
+			});
+		}
+
 
 		// marker.setMap(this.mapRef);
 	}
