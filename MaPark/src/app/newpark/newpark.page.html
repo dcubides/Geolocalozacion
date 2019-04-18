@@ -16,20 +16,17 @@
  <form [formGroup]="todo" (ngSubmit)="logForm()">
   
   <ion-item>
-      <ion-icon name="arrow-dropright"></ion-icon>
-    <ion-label> Id parque en IDRD: </ion-label>
+    <ion-label position="floating"> Id parque en IDRD: </ion-label>
     <ion-input type="number" formControlName="parqueId"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-icon name="arrow-dropright"></ion-icon>
-    <ion-label> Identificador parque en IDRD: </ion-label>
+    <ion-label position="floating"> Identificador parque en IDRD: </ion-label>
     <ion-input type="text" formControlName="identificador_parque"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-icon name="arrow-dropright"></ion-icon>
-    <ion-label> Estrato: </ion-label>
+    <ion-label position="floating"> Estrato: </ion-label>
    <ion-select placeholder="Seleccione" formControlName="estrato">
        <ion-select-option value="1">1</ion-select-option>
        <ion-select-option value="2">2</ion-select-option>
@@ -42,20 +39,17 @@
  </ion-item>
 
   <ion-item>
-      <ion-icon name="arrow-dropright"></ion-icon>
-      <ion-label> UPZ: </ion-label>
+      <ion-label position="floating"> UPZ: </ion-label>
       <ion-input type="number" formControlName="upz"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-icon name="arrow-dropright"></ion-icon>
-        <ion-label> Localidad:</ion-label>
+        <ion-label position="floating"> Localidad:</ion-label>
         <ion-input type="text" formControlName="localidad"></ion-input>
       </ion-item>
 
   <ion-item>
-      <ion-icon name="arrow-dropright"></ion-icon>
-     <ion-label> Estado certificación: </ion-label>
+     <ion-label position="floating"> Estado certificación: </ion-label>
     <ion-select placeholder="Seleccione" formControlName="estado_Certificacion">
         <ion-select-option value="CERTIFICADO">CERTIFICADO</ion-select-option>
         <ion-select-option value="SIN CERTIFICAR">SIN CERTIFICAR</ion-select-option>
@@ -63,8 +57,7 @@
   </ion-item>
 
   <ion-item>
-      <ion-icon name="arrow-dropright"></ion-icon>
-      <ion-label> Clasificación parque: </ion-label>
+      <ion-label position="floating"> Clasificación parque: </ion-label>
      <ion-select placeholder="Seleccione" formControlName="clasificacion_Parque">
          <ion-select-option value="Bolsillo">Bolsillo</ion-select-option>
          <ion-select-option value="Vecinal">Vecinal</ion-select-option>
@@ -74,38 +67,32 @@
    </ion-item>
 
    <ion-item>
-      <ion-icon name="arrow-dropright"></ion-icon>
-      <ion-label> Nombre del parque: </ion-label>
+      <ion-label position="floating"> Nombre del parque: </ion-label>
       <ion-input type="text" formControlName="nombre_Parque"></ion-input>
     </ion-item>
 
       <ion-item>
-          <ion-icon name="arrow-dropright"></ion-icon>
-          <ion-label> Administración  del parque:</ion-label>
+          <ion-label position="floating"> Administración  del parque:</ion-label>
           <ion-input type="text" formControlName="administración_Parque"></ion-input>
         </ion-item>
 
      <ion-item>
-        <ion-icon name="arrow-dropright"></ion-icon>
-       <ion-label> Código localidad: </ion-label>
+       <ion-label position="floating"> Código localidad: </ion-label>
       <ion-input type="number" formControlName="codigo_Localidad"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-icon name="arrow-dropright"></ion-icon>
-        <ion-label> Código POT:</ion-label>
+        <ion-label position="floating"> Código POT:</ion-label>
        <ion-input type="number" formControlName="codigo_POT"></ion-input>
      </ion-item>
 
      <ion-item>
-        <ion-icon name="arrow-dropright"></ion-icon>
-        <ion-label> longitud: </ion-label>
+        <ion-label position="floating"> longitud: </ion-label>
        <ion-input type="number" value="{{longitud}}" formControlName="coord_x"></ion-input>
      </ion-item>
 
      <ion-item>
-        <ion-icon name="arrow-dropright"></ion-icon>
-        <ion-label>latitud: </ion-label>
+        <ion-label position="floating">latitud: </ion-label>
        <ion-input type="number" value="{{latitud}}" formControlName="coord_y"></ion-input>
      </ion-item>
 
